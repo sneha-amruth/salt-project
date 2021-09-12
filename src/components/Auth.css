@@ -1,0 +1,179 @@
+.auth-container {
+    height: 1020px;
+    width: 480px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+header img {
+    position: relative;
+    right: -30%;
+}
+.auth-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.6rem 4rem;
+}
+.auth-btns button {
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.6rem 1.6rem;
+    border: 0.8px solid #000;
+	border-radius: 3rem;
+    border-color: #556e7e;
+    font-weight: 800;
+}
+.auth-btns .active {
+    color: #f9f7f2;
+    background-color: #556e7e;
+}
+
+.login-btn.inactive::before {
+    content: "\27F5"; 
+}
+.login-btn.inactive { 
+    margin-left: -5rem;
+}
+.signup-btn.inactive::after {
+    content: "\2192";
+}
+.signup-btn.inactive{
+    margin-right: -5rem;
+}
+
+.input-container .error-msg {
+    color: #c30606;
+    font-weight: 500;
+}
+.input-container .error-box {
+    border-bottom: 1.8px solid #c30606;
+}
+.input-container input{
+  border: 0;
+  background: transparent;
+  border-bottom: 1.8px solid black;
+  margin-top: 4rem;
+  padding: 0.4rem;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.tnc-text {
+    color: grey;
+    margin-top: 2rem;
+}
+.tnc-text a {
+    color: grey;
+}
+.tnc-text input {
+    cursor: pointer;
+}
+.next-btn {
+    position: relative;
+    left: -8rem;
+    bottom: -15rem;
+}
+.next-btn button {
+    cursor: pointer;
+    background-color: white;
+    padding: 8px 16px;
+    border: 0.8px solid #000;
+	border-radius: 3rem;
+    border-color: #556e7e;
+    transition: transform .15s ease-in-out;
+}
+.next-btn .active{
+    color: white;
+    background-color: black;
+}
+.next-btn .active:active {
+    transform: translateX(700%);
+}
+
+.dotted-line {
+    margin-top: 14rem;
+    border: dashed 1px #ce5838;
+    font-size: small;
+}
+.footer-text {
+    color: #52504b;
+    height: 20px;
+    width: 470px;
+    text-align: left;
+    margin-top: 3rem;
+    margin-left: 5rem;
+}
+.footer-text .fa-edit-custom {
+    cursor: pointer;
+}
+.footer-text .edit-phone-number {
+    font-weight: 800;
+    font-size: 1rem;
+    color: black;
+    margin: 0.8rem 0;
+}
+
+.edit-details-text a {
+    color: #094c90;
+    font-weight: 500;
+}
+.footer-images {
+    margin-top: 1rem;
+    position: relative;
+    height: 200px;
+    width: 476px;
+}
+.footer-images img {
+    width: 12%;
+    position: absolute;
+}
+.footer-images .footer-img1 {
+    left: 2%;
+    top: 35%;
+}
+.footer-images .footer-img2 {
+    right: 0;
+    top: -10%;
+   
+}
+.footer-images .footer-img3 {
+    bottom: 2%;
+    right: 26%;
+}
+.footer-images .footer-img4 {
+    bottom: 4%;
+    right: 4%;
+    
+}
+.footer-images .footer-img5 {
+   left: 25%;
+   bottom: 3%;
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    .next-btn {
+        bottom: -9rem;
+    }
+    .dotted-line {
+        margin-top: 8rem;
+    }
+    .footer-images .footer-img1 {
+        left: 10%;
+        top: 35%;
+    }
+    .footer-images .footer-img2 {
+        right: 8%;
+        top: -10%;
+       
+    }
+    .footer-images .footer-img3 {
+        bottom: 4%;
+        right: 26%;
+    }
+    .footer-images .footer-img4 {
+        bottom: 8%;
+        right: 8%;
+    }
+    .footer-images .footer-img5 {
+       left: 25%;
+       bottom: 3%;
+    }
+}
