@@ -25,7 +25,7 @@ export default function Auth() {
     if (phoneNumber !== null && phoneNumber !== "+91" && phoneNumber !== "") {
       try {
         const { data }  = await axios.get(
-          `https://phonevalidation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_SECRET_API_KEY}&phone=${phoneNumber}`
+          `https://phonevalidation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_API_KEY}&phone=${phoneNumber}`
         );
         if (data.valid) {
           setShowError(false);
