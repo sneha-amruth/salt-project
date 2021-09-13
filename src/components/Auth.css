@@ -149,6 +149,12 @@ header img {
    bottom: 3%;
 }
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    .login-btn.inactive { 
+        margin-left: -2rem;
+    }
+    .signup-btn.inactive{
+        margin-right: -2.4rem;
+    }
     .next-btn {
         bottom: -9rem;
     }
