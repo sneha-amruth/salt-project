@@ -4,15 +4,19 @@ import dotenv from "dotenv";
 import "./Auth.css";
 dotenv.config();
 
+
 export default function Auth() {
   const [isSignup, setIsSignup] = useState(false);
   const [showPasswordInputField, setShowPasswordInputField] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [showError, setShowError] = useState(false);
   const inputRef = useRef();
-  const [randomNumber, setRandomNumber] = useState([]);
+  const [randomNumber, setRandomNumber] = useState([1,2,3,4,5]);
+  const [compAnimation, setCompAnimation] = useState(0);
+  const [nextBtnAnimation, setNextBtnAnimation] = useState(0);
 
   const switchMode = (e) => {
+    setCompAnimation(1);
     setShowPasswordInputField(false);
     if (e.target.name === "login") {
       setIsSignup(false);
@@ -22,6 +26,7 @@ export default function Auth() {
   };
 
   const handleClick = async () => {
+    setNextBtnAnimation(1);
     if (phoneNumber !== null && phoneNumber !== "+91" && phoneNumber !== "") {
       try {
         const { data }  = await axios.get(
@@ -64,6 +69,19 @@ export default function Auth() {
     }
     setRandomNumber(arr);
   }, []);
+
+  useEffect(() => {
+    if(compAnimation === 1){
+      setTimeout(() => {
+        setCompAnimation(0)
+      }, 600);
+    }
+    if(nextBtnAnimation === 1){
+      setTimeout(() => {
+        setNextBtnAnimation(0)
+      }, 600);
+    }
+  }, [compAnimation, nextBtnAnimation])
   return (
     <section className="auth-container">
       <header>
@@ -91,7 +109,7 @@ export default function Auth() {
             Signup
           </button>
         </div>
-
+        <div className="animate-component" compAnimation={compAnimation}>
         <div className="input-container">
           {showError && (
             <div className="error-msg">
@@ -114,10 +132,10 @@ export default function Auth() {
           )}
         </div>
 
-        {isSignup && (
-          <div className="tnc-text">
-            <input type="radio"></input>
-            <label>
+       
+          <div className={isSignup ? "tnc-text tnc-container" : "tnc-text-inactive tnc-container"}>
+            <input id="checkbox" type="checkbox" name="tnc" value="tnc"></input>
+            <label for="checkbox">
               I agree to SALT's{" "}
               <a
                 href="https://www.salt.one/"
@@ -128,10 +146,10 @@ export default function Auth() {
               </a>
             </label>
           </div>
-        )}
-
-        {!isSignup && (
-          <div className="next-btn">
+          </div>
+      </main>
+      {/* {!isSignup && ( */}
+          <div className="next-btn" nextBtnAnimation={nextBtnAnimation}>
             <button
               onClick={handleClick}
               className={showPasswordInputField ? "active" : ""}
@@ -139,9 +157,8 @@ export default function Auth() {
               <i className="fas fa-arrow-right fa-lg"></i>
             </button>
           </div>
-        )}
-        <div className="dotted-line"></div>
-      </main>
+        {/* )} */}
+      <div className="dotted-line"></div>
       <div className="footer-text">
         {showPasswordInputField && !isSignup ? (
           <div className="edit-details-text">
